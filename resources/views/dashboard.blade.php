@@ -7,9 +7,16 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+            <div class="grid gap-4 grid-cols-3 grid-rows-3">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        {{ __("You have 0 open Job applications and 0 successful") }}
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        {{ __("You have 0 Training modules in progress and 0 completed") }}
+                    </div>
                 </div>
             </div>
         </div>
