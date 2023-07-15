@@ -16,8 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name', 200);
             $table->integer('user_id');
-            $table->bool('shared');
-            $table->bool('active');
+            $table->boolean('shared');
+            $table->boolean('active');
         });
     }
 

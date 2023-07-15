@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\application_state>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User_Organisation>
  */
-class ApplicationStateFactory extends Factory
+class User_OrganisationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,6 @@ class ApplicationStateFactory extends Factory
     {
         return [
             'name' => fake()->word(),
-            'successful' => fake()->boolean(),
-            'rejected' => fake()->boolean()
         ];
     }
 }

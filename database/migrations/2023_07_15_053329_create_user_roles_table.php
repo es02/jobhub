@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 100);
-            $table->bool('hasMemberPerms');
-            $table->bool('hasEmployerPerms');
-            $table->bool('hasAdminAccess');
+            $table->boolean('hasMemberPerms');
+            $table->boolean('hasEmployerPerms');
+            $table->boolean('hasAdminAccess');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('user_role');
     }
 };

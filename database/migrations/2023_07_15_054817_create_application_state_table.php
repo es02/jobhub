@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 100);
-            $table->bool('successful');
-            $table->bool('rejected');
+            $table->boolean('successful');
+            $table->boolean('rejected');
         });
     }
 

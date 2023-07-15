@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class User_Role extends Model
 {
     use HasFactory;
+    
+    /**
+    * The table associated with the model.
+    *
+    * @var string
+    */
+   protected $table = 'user_role';
 
     /**
      * The attributes that are mass assignable.
