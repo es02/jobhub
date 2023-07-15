@@ -1,0 +1,18 @@
+FROM registry.access.redhat.com/ubi9/php-81:latest
+
+LABEL MAINTAINER Timothy Teoh <chalcedonyt@gmail.com>
+
+USER root
+
+RUN mkdir -p        /opt/app-root/src \
+&&  chown -R 1001:0 /opt/app-root \
+&&  chmod -R og+rwx /opt/app-root \
+&&  chmod -R +x     $STI_SCRIPTS_PATH
+
+USER 1001
+
+#This will be executed automatically
+COPY bin/assemble-runtime $STI_SCRIPTS_PATH/assemble-runtime
+
+WORKDIR /opt/app-root/src
+CMD $STI_SCRIPTS_PATH/run

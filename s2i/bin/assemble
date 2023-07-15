@@ -1,0 +1,20 @@
+#!/bin/bash -e
+if [[ "$1" == "-h" ]]; then
+    exec $STI_SCRIPTS_PATH/usage
+fi
+
+shopt -s dotglob
+
+echo "---> Copying application source..."
+mv /tmp/src/* ./
+
+echo "---> Compiling js"
+npm i --save-dev && npm run build
+
+echo "--> Deleting unneeded node_modules, .git and tests/ folder after compiling"
+rm -rf node_modules
+rm -rf tests
+rm -rf .git
+
+echo "---> Exporting build artifact(s)..."
+tar -zcf /tmp/laravel.tgz .
