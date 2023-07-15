@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('name', 100);
             $table->text('description');
-            $table->bool('filled');
-            $table->bool('active');
+            $table->boolean('filled');
+            $table->boolean('active');
         });
     }
 
