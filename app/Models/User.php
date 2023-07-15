@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'organisationId'
     ];
 
     /**
@@ -42,4 +43,36 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Get the organisation associated with the user.
+     */
+    public function organisation(): BelongsTo
+    {
+        return $this->belongsTo(User_Organisation::class);
+    }
+
+    /**
+     * Get the role associated with the user.
+     */
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(User_Role::class);
+    }
+
+    /**
+     * Get users job postings.
+     */
+    public function jobs(): HasMany
+    {
+        return $this->hasMany(Job::class);
+    }
+
+    /**
+     * Get the applications for the job.
+     */
+    public function applications(): HasMany
+    {
+        return $this->hasMany(Job_Application::class);
+    }
 }

@@ -18,5 +18,44 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        \App\Models\UserRole::factory()->create([
+            'name' => 'Member',
+            'hasMemberPerms' => True,
+            'hasEmployerPerms' => False,
+            'hasAdminAccess' => False
+        ]);
+
+        \App\Models\UserRole::factory()->create([
+            'name' => 'Employer',
+            'hasMemberPerms' => False,
+            'hasEmployerPerms' => True,
+            'hasAdminAccess' => False
+        ]);
+
+        \App\Models\UserRole::factory()->create([
+            'name' => 'Member',
+            'hasMemberPerms' => False,
+            'hasEmployerPerms' => False,
+            'hasAdminAccess' => True
+        ]);
+
+        \App\Models\ApplicationState::factory()->create([
+            'name' => 'Pending',
+            'successful' => False,
+            'rejected' => False
+        ]);
+
+        \App\Models\ApplicationState::factory()->create([
+            'name' => 'Successful',
+            'successful' => True,
+            'rejected' => False
+        ]);
+
+        \App\Models\ApplicationState::factory()->create([
+            'name' => 'Unsuccessful',
+            'successful' => False,
+            'rejected' => True
+        ]);
     }
 }
