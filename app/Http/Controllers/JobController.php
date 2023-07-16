@@ -42,8 +42,9 @@ class JobController extends Controller
         }
 
         return view('job.list', [
+            'user'  => $user,
             'role'  => $role->name,
-            'count' => $count/10, // number of pages of results
+            'count' => ceil($count/10), // number of pages of results
             'jobs'  => $jobs,
             'page'  => 1    
         ]);    
@@ -79,7 +80,8 @@ class JobController extends Controller
         }
 
         return view('job.list', [
-            'count' => $count/10, // number of pages of results
+            'user'  => $user,
+            'count' => ceil($count/10), // number of pages of results
             'jobs' => $jobs,
             'page' => $pagenum   
         ]);    
@@ -108,13 +110,14 @@ class JobController extends Controller
 
         if ($role->hasEmployerPerms == True or $role->hasAdminAccess == True){
             $job = Job::Create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'filled' => False,
-                'active' => True
+                'name'          => $request->name,
+                'description'   => $request->description,
+                'user_id'       => $user->id,
+                'filled'        => False,
+                'active'        => True
             ]);
 
-            return back()->with('status', 'Job Created');
+            return back()->with('status', 'job-created');
         }
 
         return back()->with('status', 'Failed - You do not have permission to create this resource');
@@ -162,7 +165,7 @@ class JobController extends Controller
             $job->active = $request->active;
 
             $job->save();
-            return back()->with('status', 'Job Updated');
+            return back()->with('status', 'job-updated');
         }
 
         return back()->with('status', 'Failed - You do not have permission to update this resource');
