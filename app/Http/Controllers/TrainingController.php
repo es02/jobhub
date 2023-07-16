@@ -110,7 +110,7 @@ class TrainingController extends Controller
             $training = Training::Create([
                 'name' => $request->name,
                 'description' => $request->description,
-                'filled' => False,
+                'shared' => False,
                 'active' => True
             ]);
 
@@ -158,7 +158,7 @@ class TrainingController extends Controller
 
             $training->name = $request->name;
             $training->description = $request->description;
-            $training->filled = $request->filled;
+            $training->shared = $request->shared;
             $training->active = $request->active;
 
             $training->save();

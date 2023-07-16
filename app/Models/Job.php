@@ -28,7 +28,8 @@ class Job extends Model
         'name',
         'description',
         'filled',
-        'active'
+        'active',
+        'user_id'
     ];
 
     /**
