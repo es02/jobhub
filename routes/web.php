@@ -32,14 +32,14 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/job', [JobController::class, 'index'])->name('job');
-    Route::post('/job', [JobController::class, 'create'])->name('job.create');
+    Route::put('/job', [JobController::class, 'store'])->name('job');
     Route::patch('/job/{id}', [JobController::class, 'update'])->name('job.update');
     Route::delete('/job/{id}', [JobController::class, 'destroy'])->name('job.destroy');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/training', [TrainingController::class, 'index'])->name('training');
-    Route::post('/training', [TrainingController::class, 'create'])->name('training.create');
+    Route::put('/training', [TrainingController::class, 'create'])->name('training.create');
     Route::patch('/training/{id}', [TrainingController::class, 'update'])->name('training.update');
     Route::delete('/training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
 });
