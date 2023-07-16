@@ -16,6 +16,21 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- User Organisation -->
+        <div class="mt-4">
+            <x-input-label for="Organisation" :value="__('Organisation')" />
+            <x-text-input id="organisation" class="block mt-1 w-full" type="organisation" name="organisation" :value="old('organisation')" required autocomplete="company" />
+            <x-input-error :messages="$errors->get('organisation')" class="mt-2" />
+        </div>
+
+        <!-- User Type -->
+        <div class="mt-4">
+            <x-input-label for="Role" :value="__('Account Type')" />
+            <x-radio name="role" id="member" value="Member" label="Jobseeker"/>
+            <x-radio name="role" id="employer" value="Employer" label="Job Provider"/>            
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

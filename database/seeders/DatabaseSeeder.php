@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
-            'name' => 'Test User',
+            'name' => 'Test Admin',
             'email' => 'admin@example.com',
             'user_org_id' => '1',
             'user_role_id' => '3'
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
-            'name' => 'Test User',
+            'name' => 'Test Employer',
             'email' => 'employer@example.com',
             'user_org_id' => '1',
             'user_role_id' => '2'
