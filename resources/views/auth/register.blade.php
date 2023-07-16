@@ -26,8 +26,8 @@
         <!-- User Type -->
         <div class="mt-4">
             <x-input-label for="Role" :value="__('Account Type')" />
-            <x-radio name="role" id="member" value="Member" label="Jobseeker"/>
-            <x-radio name="role" id="employer" value="Employer" label="Job Provider"/>            
+            <x-radio name="role" id="member" value="Member"> Jobseeker </x-radio>
+            <x-radio name="role" id="employer" value="Employer"> Job Provider </x-radio>           
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>
 
